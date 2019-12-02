@@ -1,5 +1,8 @@
 const process = require('process');
 const app = require('express')();
+const bodyParser = require('body-parser');
+const cors = require('cors');
+
 const mainPort = process.env.SOCIAL_SERVER_PORT || 3000;
 
 // importing routes from different routers
@@ -12,6 +15,8 @@ const accountSid = ''
 const authToken = ''
 // const client = twilio(accountSid, authToken);
 
+app.use(cors());
+app.use(bodyParser.json());
 app.get('/status', (req,res) => {
     res.status(200).send('I am alive');
 })

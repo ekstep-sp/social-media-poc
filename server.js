@@ -3,7 +3,7 @@ const app = require('express')();
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
-const mainPort = process.env.SOCIAL_SERVER_PORT || 3000;
+const mainPort = process.env.PORT;
 
 // importing routes from different routers
 const {twRouter} = require('./routes/routes-main');

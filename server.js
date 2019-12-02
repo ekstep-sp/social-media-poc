@@ -11,8 +11,8 @@ const {twRouter} = require('./routes/routes-main');
 const twilio = require('twilio');
 
 // importing account sid and account token of whatsapp application installed in twilio
-const accountSid = ''
-const authToken = ''
+const accountSid = 'AC2dc051e81b708fa2e98a76bd1bfcb6e6'
+const authToken = '5242098a97503afe35c3e2faa04f2e68'
 // const client = twilio(accountSid, authToken);
 
 app.use(cors());

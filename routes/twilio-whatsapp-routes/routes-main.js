@@ -1,6 +1,7 @@
 const router = require('express').Router();
+const path = require('path');
 console.log('fetching twilio client');
-const twilioClient = require('./../../lib/twilio/twilio').getClient();
+const twilioClient = require(path.join(__dirname, './../../lib/twilio/twilio')).getClient();
 
 router.get('/status', (req,res) => {
     res.status(200).send('twilio apis for whatsapp are reachable');

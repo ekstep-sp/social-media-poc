@@ -12,6 +12,7 @@ router.post('/event-webhook', (req,res) => {
         params: req.params,
         headers: req.headers
     }
+    console.log('complete req is ', completeData);
     res.status(200).send({completeData});
 });
 

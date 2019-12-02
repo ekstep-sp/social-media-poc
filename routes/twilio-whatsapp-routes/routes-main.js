@@ -6,7 +6,7 @@ router.get('/status', (req,res) => {
 
 // post api t
 router.post('/event-webhook', (req,res) => {
-    console.log('recieved post request for status');
+    console.log('recieved post request for event-webhook');
     console.log(req.body);
     res.status(200).send({response: 'ok'});
 });

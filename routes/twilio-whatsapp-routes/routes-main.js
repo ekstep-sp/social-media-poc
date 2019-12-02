@@ -1,7 +1,14 @@
 const router = require('express').Router();
 const path = require('path');
 console.log('fetching twilio client');
-const twilioClient = require(path.join(__dirname, './../../lib/twilio/twilio')).getClient();
+
+const accountSid = 'AC2dc051e81b708fa2e98a76bd1bfcb6e6'
+const authToken = '5242098a97503afe35c3e2faa04f2e68'
+const twilio = require('twilio')(accountSid, authToken);
+
+
+
+//const twilioClient = require(path.join(__dirname, './../../lib/twilio/twilio')).getClient();
 
 router.get('/status', (req,res) => {
     res.status(200).send('twilio apis for whatsapp are reachable');
@@ -11,7 +18,7 @@ router.get('/status', (req,res) => {
 router.post('/event-webhook', (req,res) => {
     console.log('recieved post request for event-webhook');
     console.log('body ', req.body);
-    twilioClient.messages.create({
+    twilio.messages.create({
         from: 'whatsapp:+14155238886',
         to: 'whatsapp:+919971696729',
         body: 'This is automated text'

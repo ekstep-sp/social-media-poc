@@ -1,5 +1,5 @@
 const router = require('express').Router();
-
+console.log('fetching twilio client');
 const twilioClient = require('./../../lib/twilio/twilio');
 
 router.get('/status', (req,res) => {

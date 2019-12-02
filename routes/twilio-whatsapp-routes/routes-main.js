@@ -9,6 +9,7 @@ router.get('/status', (req,res) => {
 // post api t
 router.post('/event-webhook', (req,res) => {
     console.log('recieved post request for event-webhook');
+    console.log('body ', req.body);
     twilioClient.messages.create({
         from: 'whatsapp:+14155238886',
         to: 'whatsapp:+919971696729',

@@ -39,13 +39,6 @@ router.post('/event-webhook', (req,res) => {
         console.log('message sent with id ', messageRes.sid);
         res.send('OK');
     });
-    /* const completeData = {
-        body: req.body,
-        params: req.params,
-        headers: req.headers
-    }
-    console.log('complete req is ', completeData);
-    res.status(200).send({completeData}); */
 });
 
 module.exports = router;

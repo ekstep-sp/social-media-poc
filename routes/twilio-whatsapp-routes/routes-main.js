@@ -19,6 +19,18 @@ router.get('/status', (req,res) => {
 router.post('/event-webhook', (req,res) => {
     console.log('recieved post request for event-webhook');
     console.log('body ', req.body);
+    // fetch important data 
+    const completeData = {
+        data: req.body.Body,
+        smsSID: req.body.SmsSid,
+        status: req.body.SmsStatus,
+        from: req.body.From,
+        to: req.body.To,
+        messageSID: req.body.MessageSid,
+        accountSID: req.body.AccountSid,
+        totalSegments: req.body.NumSegments,
+    };
+    console.log('complete data is ', completeData);
     twilio.messages.create({
         from: 'whatsapp:+14155238886',
         to: 'whatsapp:+919971696729',

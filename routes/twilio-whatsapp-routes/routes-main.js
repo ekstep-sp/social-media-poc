@@ -33,8 +33,8 @@ router.post('/event-webhook', (req,res) => {
     console.log('complete data is ', completeData);
     twilio.messages.create({
         from: 'whatsapp:+14155238886',
-        to: 'whatsapp:+919971696729',
-        body: 'This is automated text'
+        to: completeData.from,
+        body: `Hie ${completeData.from}, we have successfully recieved your message : ${completeData.data}. We will get back to you.`,
     }).then(messageRes => {
         console.log('message sent with id ', messageRes.sid);
         res.send('OK');

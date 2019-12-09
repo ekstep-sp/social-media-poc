@@ -30,7 +30,8 @@ router.all('/page-event', (req, res, next) => {
         }
     } else {
         // request is verified already, now this will have original data
-        console.log('recieved data is ', req.body);
+        console.log('recieved data is ');
+        console.log(JSON.stringify(req.body));
         res.status(200).send({status: 'ok', message: 'webhook recieved properly'});   
     }
     next();

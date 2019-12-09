@@ -2,19 +2,21 @@ const process = require('process');
 const express = require('express');
 const app = express();
 
-const mainPort = process.env.PORT;
+const mainPort = process.env.PORT || 3200;
 
 // importing routes from different routers
-const {twRouter} = require('./routes/routes-main');
-// importing twilio for whatsapp
-app.use(express.urlencoded())
-// app.use(cors());
-// app.use(bodyParser.json());
+const {twRouter, fbRouter} = require('./routes/routes-main');
+// use urlencoded format
+app.use(express.urlencoded({extended: true}))
+// use json formats
+app.use(express.json());
+
 app.get('/status', (req,res) => {
     res.status(200).send('I am alive');
 })
 
 app.use('/tw-whatsapp', twRouter);
+app.use('/fb-callback', fbRouter);
 
 app.listen(mainPort, () => {
     console.log('main server is burning hot at ', mainPort);

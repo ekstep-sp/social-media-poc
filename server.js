@@ -5,7 +5,7 @@ const app = express();
 const mainPort = process.env.PORT || 3200;
 
 // importing routes from different routers
-const {twRouter, fbRouter} = require('./routes/routes-main');
+const {twRouter, fbRouter, twtRouter} = require('./routes/routes-main');
 // use urlencoded format
 app.use(express.urlencoded({extended: true}))
 // use json formats
@@ -17,6 +17,7 @@ app.get('/status', (req,res) => {
 
 app.use('/tw-whatsapp', twRouter);
 app.use('/fb-callback', fbRouter);
+app.use('/twt-callback', twtRouter);
 
 app.listen(mainPort, () => {
     console.log('main server is burning hot at ', mainPort);

@@ -26,4 +26,11 @@ router.all('/webhook-event', (req, res, next) => {
     next();
 });
 
+router.post('/official', (req,res) => {
+    console.log('/twt-callback/official hit');
+    console.log(JSON.stringify(req.body));
+    res.status(200).send({status: 'ok', message: 'callback recieved properly'});   
+
+});
+
 module.exports = router;

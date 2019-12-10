@@ -12,7 +12,7 @@ router.all('/webhook-event', (req, res, next) => {
         const verified = verifyTwitterWebhook(req);
         if (verified) {
             // send back the challenge value to set it up
-            res.status(200).send(verified.sha);
+            res.status(200).send({response_token: verified.sha});
         } else {
             console.log('could not verify the webhook, sending 403');
             res.status(403).send('unauthorized');

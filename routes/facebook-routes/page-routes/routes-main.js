@@ -2,11 +2,11 @@ const router = require('express').Router();
 const {verifyFBWebhook} = require('./../../utilities/FBRoutes-utility');
 
 const appDetails = {
-    appName: 'social-media-usage',
-    appID: '554877028637015',
-    userToken: 'EAAH4qGAvmVcBADZCt2BOMjRR6OZBVO8mXgoi3rJ5253lffoZAaEab9HJvCDLHCyvg8lopOuiKVQt2CQNaj1ZB4aTR8HdkrD70MQtkTdsEYHMjpwBIZB8XzagSreUJAXYW2SrSZCbRCOeOSlh83ITglWPbdQhD0ymdxb2PLyOTQMAZDZD',
-    appToken: '554877028637015|JD6fnGr9fiLO3Qc9Ed8KXwO81-w',
-    appSecret: '338a09efbb63f60dc4bd3ac3eb86c767'
+    appName: process.env.FACEBOOK_APP_NAME,
+    appID: process.env.FACEBOOK_APP_ID,
+    userToken: process.env.FACEBOOK_USER_TOKEN,
+    appToken: process.env.FACEBOOK_APP_TOKEN,
+    appSecret: process.env.FACEBOOK_APP_SECRET
 }
 
 

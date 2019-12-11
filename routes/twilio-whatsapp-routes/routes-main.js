@@ -1,13 +1,8 @@
 const router = require('express').Router();
 
-const accountSid = 'AC2dc051e81b708fa2e98a76bd1bfcb6e6'
-const authToken = '5242098a97503afe35c3e2faa04f2e68'
+const accountSid = process.env.TWILIO_ACCOUNT_SID;
+const authToken = process.env.TWILIO_AUTH_TOKEN;
 const twilio = require('twilio')(accountSid, authToken);
-
-// const MessagingResponse = require('twilio').twiml.MessagingResponse;
-// const response = new MessagingResponse();
-
-//const twilioClient = require(path.join(__dirname, './../../lib/twilio/twilio')).getClient();
 
 router.get('/status', (req,res) => {
     res.status(200).send('twilio apis for whatsapp are reachable');
